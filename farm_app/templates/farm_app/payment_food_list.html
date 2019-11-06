@@ -1,0 +1,117 @@
+{% extends 'farm_app/base.html' %}
+{% load static %}
+{% block content %}
+<script>
+    function validarFormulario(){
+      var txtNomTitular = document.getElementById('nomTitular').value;
+      var txtNumTarjeta = document.getElementById('numCredito').value;
+      var txtDireccion = document.getElementById('direc').value;
+      var txtCodPostal = document.getElementById('codPostal').value;
+      var txtMes = document.getElementById('mes').value;
+      var txtAno = document.getElementById('ano').value;
+      var txtCcv = document.getElementById('ccv').value;
+      var txtContacto = document.getElementById('contacto').value;
+
+      if (txtNumTarjeta == null || txtNumTarjeta.length == 0 || isNaN(txtNumTarjeta)) {
+          alert('ERROR: RELLENE EL CAMPO DEL NÚMERO DE LA TARJETA');
+          document.compra.numCredito.focus();
+          return false;
+      } else {
+              if (txtNomTitular == null || txtNomTitular.length == 0) {
+                alert('ERROR: RELLENE EL CAMPO DEL TITULAR');
+                document.compra.nomTitular.focus();
+                return false;
+      } else {
+              if (txtDireccion == null || txtDireccion.length == 0) {
+                  alert('ERROR: RELLENE EL CAMPO DE DIRECCIÓN');
+                  document.compra.direc.focus();
+                  return false;
+      } else{
+              if (txtContacto == null || txtContacto.length == 0 || isNaN(txtContacto)) {
+                  alert('ERROR: RELLENE EL CAMPO DE CONTACTO');
+                  document.compra.contacto.focus();
+                  return false;
+              }
+              if (txtCodPostal == null || txtCodPostal.length == 0 || isNaN(txtCodPostal)) {
+                  alert('ERROR: RELLENE EL CAMPO CON EL CODIGO POSTAL');
+                  document.compra.codPostal.focus();
+                  return false;
+      } else{
+              if (txtMes == null || txtMes.length == 0 || isNaN(txtMes)) {
+                  alert('ERROR: RELLENE EL CAMPO "MES"');
+                  document.compra.mes.focus();
+                  return false;
+      } else{
+              if (txtAno == null || txtAno.length == 0 || isNaN(txtAno)) {
+                  alert('ERROR: RELLENE EL CAMPO "AÑO"');
+                  document.compra.ano.focus();
+                  return false;
+      } else{
+              if (txtCcv == null || txtCcv.length == 0 || isNaN(txtCcv)) {
+                  alert('ERROR: RELLENE EL CCV DE SU TARJETA DE CREDITO');
+                  document.compra.ccv.focus();
+                  return false;
+      }else{
+              if (txtContacto == null || txtContacto.length == 0 || isNaN(txtContacto)) {
+                  alert('ERROR: RELLENE EL CAMPO DE CONTACTO');
+                  document.compra.contacto.focus();
+                  return false;
+              }
+      }
+      }
+      }
+      }
+      }   
+      }
+      }
+      }
+
+      function confirmOption(opcion, direccion){
+        if(confirm("Esta seguro que desea " + opcion)) {
+          window.location.href = direccion;
+        }
+      }
+
+</script>
+
+{% if status == 'DELETED' %}
+  <div class="alert alert-success" role="alert">
+    Pedido eliminado satisfactoriamente
+  </div>
+{% endif %}
+
+<div class="center fadeInDown">
+    <h2>Lista de Pedidos de Alimentos</h2>
+  </div>
+<section id="team-area">
+  <div class="container">
+      <div class="row">
+        <!-- Container Caballo -->
+{% for x in list %}
+        <div class="col-md-3 col-sm-6 single-team">
+          <div class="inner">
+            <div class="team-img">
+              <img class="animal" src="{% static 'img/blog/avatar3.png' %}" alt="">
+            </div>
+            <div class="team-content">
+              <h4>Codigo de Pedido: {{x.pk}}</h4>
+              <h2>Rut: {{x.rut}}</h2>
+              <h2>Correo: {{x.correo}}</h2>
+              <h2>Metodo de pago: {{x.pay}}</h2>
+              <h2>Producto Encargado: {{x.product}}</h2>
+              <br>
+              <div class="card-footer">
+                <a href="#ventana1" class="btn btn-primary" data-toggle="modal">Modificar</a>
+                <a href="#ventana1" onclick="confirmOption('eliminar', '/payment_food_delete/{{x.pk}}')" class="btn btn-primary" >Eliminar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+{% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+   
+

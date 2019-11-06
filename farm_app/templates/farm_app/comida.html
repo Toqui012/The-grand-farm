@@ -1,0 +1,221 @@
+{% extends 'farm_app/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<body>
+ <!--/#services-->
+      <!-- Page Content -->
+      {% if status == 'OK' %}
+        <div class="alert alert-success" role="alert">
+            FUNCIONO CTM
+        </div>
+      {% elif status == 'ERROR' %}
+      <div class="alert alert-danger" role="alert">
+        Ocurrio un error al ingresar el evento, por favor intentelo mas tarde.
+      </div>
+      {% endif %}
+      <div class="container">
+        <!-- Jumbotron Header -->
+        <header class="jumbotron my-4">
+          <h1 class="display-3">Alimentos para tus animales!</h1><br>
+          <p class="lead">Aqui encontraras un catalogo diverso de productos para que puedas alimentar a tus animales de granja</p><br>
+        
+        </header>
+    
+        <!-- Page Features -->
+        <div class="row text-center">
+    
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img class="card-img-top" src="{% static 'img/comida_animales/camposano_saco.jpg' %}" alt="">
+              <div class="card-body">
+                <h4 class="card-title"> Dapac Cerdas</h4>
+                <p class="card-text"> Pienso compuesto completo para cerdas en lactación. <br> <br> <strong> Presentación: </strong> Saco de 40 Kg.</p>
+              </div>
+            <br><br><br>
+            
+              <div class="card-footer">
+                <a href="#pago" class="btn btn-primary">Comprar!</a>
+              </div>
+            </div>
+          </div>
+    
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img class="card-img-top" src="{% static 'img/comida_animales/aviplus-6-kg.jpg' %}" alt="">
+              <div class="card-body">
+                <h4 class="card-title">Aviplus</h4>
+                <p class="card-text">Tónico estimulante para aves de granja. Rico en proteínas, minerales, aminoácidos y ácidos grasos. <br> <br> <strong> Presentacion:</strong> 6 Kg.</p>
+              </div>
+              <br>
+              <br>
+              <div class="card-footer">
+                <a href="#pago" class="btn btn-primary">Comprar!</a>
+              </div>
+            </div>
+          </div>
+    
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img class="card-img-top" src="{% static 'img/comida_animales/camperbroiler-granulado.jpg' %}" alt="">
+              <div class="card-body">
+                <h4 class="card-title">Camperbroiler Granulado</h4>
+                <p class="card-text">Alimentación natural que favorece el crecimiento y una excelente calidad de la canal. Especialmente indicado para estirpes de lento crecimiento, pollo rústico, en estado de libertad.<br><strong>Presentacion:</strong> 10 kg.</p> 
+              </div>
+              <br>
+              <div class="card-footer">
+                <a href="#pago" class="btn btn-primary">Comprar!</a>
+              </div>
+            </div>
+          </div>
+    
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img class="card-img-top" src="{% static 'img/comida_animales/conchilla_de_ostra_camper.jpg' %}" alt="">
+              <div class="card-body">
+                <h4 class="card-title">Conchilla</h4>
+                <p class="card-text">Suplemento vitamíco - mineral para gallinas y pollos.
+    
+                    La concha de ostras natural es una excelente fuente de calcio para obtener cáscaras de huevos resistentes y para fortalecer los huesos de gallinas y pollos. <br> <strong>Presentacion:</strong> 5 Kg. </p>
+              </div>
+              <div class="card-footer">
+                <a href="#pago" class="btn btn-primary">Comprar!</a>
+              </div>
+            </div>
+          </div>
+    
+        </div>
+        <!-- /.row -->
+    
+      </div>
+      <!-- /.container -->
+      <br> <br>
+    
+      <div class="container">
+    
+       
+    
+        <!-- Page Features -->
+        <div class="row text-center">
+    
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img class="card-img-top" src="{% static 'img/comida_animales/dapac-vacas.jpg' %}" alt="">
+              <div class="card-body">
+                <h4 class="card-title"> Dapac Vacas</h4>
+                <p class="card-text"> Pienso compuesto completo para cerdas en lactación. <br> <br> <strong>Presentación:</strong>  Saco de 40 Kg.</p>
+              </div>
+            <br><br><br>
+            
+              <div class="card-footer">
+                <a href="#pago" class="btn btn-primary">Comprar!</a>
+              </div>
+            </div>
+          </div>
+    
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img class="card-img-top" src="{% static 'img/comida_animales/nantacor.jpg' %}" alt="">
+              <div class="card-body">
+                <h4 class="card-title">Nantacor</h4>
+                <p class="card-text">Pienso para destetes ultra precoces. <br><br> <br> <strong> Presentacion: </strong>  25 Kg.</p>
+              </div>   <br><br> <br>
+              <div class="card-footer">
+                <a href="#pago" class="btn btn-primary">Comprar!</a>
+              </div>
+            </div>
+          </div>
+    
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img class="card-img-top" src="{% static 'img/comida_animales/guidolin.jpg' %}" alt="">
+              <div class="card-body">
+                <h4 class="card-title">Guidolin Nutri Potros</h4>
+                <p class="card-text"> satisface las necesidades nutricionales de los potros en todas las etapas de crecimiento en las que, además de incrementar tamaño y peso, desarrollan todos sus órganos y sistemas.<br><strong> Presentacion: </strong>  30 kg.</p> 
+              </div>
+              <br>
+              <div class="card-footer">
+                <a href="#pago" class="btn btn-primary">Comprar!</a>
+              </div>
+            </div>
+          </div>
+    
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img class="card-img-top" src="{% static 'img/comida_animales/pato.webp' %}" alt="">
+              <div class="card-body">
+                <h4 class="card-title">Red Kite</h4>
+                <p class="card-text">Para patos juveniles durante las primeras 24 horas día de vida hasta el 1° año <br> <br> <strong>  Presentacion: </strong>  3 Kg. </p>
+              </div>
+              <br><br>
+              <div class="card-footer">
+                <a href="#pago" class="btn btn-primary">Comprar!</a>
+              </div>
+            </div>
+          </div>
+    
+        </div>
+        <!-- /.row -->
+    
+      </div>
+      <!-- /.container -->
+    
+       
+ 
+
+<section id="contact-page">
+<div class="container">
+  <div class="large-title text-center">        
+    <h2>Seccion de pago de Alimento</h2>
+  </div> 
+   
+  <div id="pago"class="row contact-wrap">   
+    <!-- Formulario de pago -->
+    <form  method="POST" class="foodbuy_form">{% csrf_token %}
+        <div class="col-sm-5 col-sm-offset-1">
+          <div class="form-group">
+              <label for="nom">Rut: </label>
+              <input type="text" id="rut" name="rut"  class="form-control"  placeholder="Ej: 20123123k">
+          </div>
+
+          <div class="form-group">
+              <label for="ed">Nro cuenta: </label>
+              <input type="text" id="num_cuenta" name="num_cuenta"  class="form-control" placeholder="Escribe tu nro de cuenta">
+          </div> 
+          <div class="form-group">
+            <label for="correito">Correo electrónico: </label>
+            <input type="text" id="correo" name="correo"  class="form-control" placeholder="Escribe tu correo electronico" >
+          </div>
+        </div>
+      <div class="col-sm-5">
+        <div class="form-group">
+          <label for="selector"> Selecciona un producto:</label>
+          <select name="selector" id="selector"  class="form-control">
+            <option value="">Valor por defecto</option>
+            <option value="1">Dapac Cerdas  </option>
+            <option value="2">Aviplus  </option>
+            <option value="3">Camperbroiler Granulado  </option>
+            <option value="4">Conchilla  </option>
+            <option value="5"> Dapac Vacas  </option>
+            <option value="6">Nantacor  </option>
+            <option value="7">Guidolin Nutri Potros  </option>
+            <option value="8">Red Kite  </option>
+          </select>
+
+          <label for="selector2"> Forma de pago*</label>
+          <select name="selector2" id="selector2" class="form-control">
+            <option value="">Valor por defecto</option>
+            <option value="1">Tarjeta  </option>
+            <option value="2">Paypal  </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <button type="submit" name="submit" class="btn btn-primary btn-lg" >Pagar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</section>
+{% endblock %}

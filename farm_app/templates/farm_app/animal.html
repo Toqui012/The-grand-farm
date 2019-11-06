@@ -1,0 +1,847 @@
+{% extends 'farm_app/base.html' %}
+{% load static %}
+{% block content %}
+<script>
+    function validarFormulario(){
+      var txtNomTitular = document.getElementById('nomTitular').value;
+      var txtNumTarjeta = document.getElementById('numCredito').value;
+      var txtDireccion = document.getElementById('direc').value;
+      var txtCodPostal = document.getElementById('codPostal').value;
+      var txtMes = document.getElementById('mes').value;
+      var txtAno = document.getElementById('ano').value;
+      var txtCcv = document.getElementById('ccv').value;
+      var txtContacto = document.getElementById('contacto').value;
+
+      if (txtNumTarjeta == null || txtNumTarjeta.length == 0 || isNaN(txtNumTarjeta)) {
+          alert('ERROR: RELLENE EL CAMPO DEL NÚMERO DE LA TARJETA');
+          document.compra.numCredito.focus();
+          return false;
+      } else {
+              if (txtNomTitular == null || txtNomTitular.length == 0) {
+                alert('ERROR: RELLENE EL CAMPO DEL TITULAR');
+                document.compra.nomTitular.focus();
+                return false;
+      } else {
+              if (txtDireccion == null || txtDireccion.length == 0) {
+                  alert('ERROR: RELLENE EL CAMPO DE DIRECCIÓN');
+                  document.compra.direc.focus();
+                  return false;
+      } else{
+              if (txtContacto == null || txtContacto.length == 0 || isNaN(txtContacto)) {
+                  alert('ERROR: RELLENE EL CAMPO DE CONTACTO');
+                  document.compra.contacto.focus();
+                  return false;
+              }
+              if (txtCodPostal == null || txtCodPostal.length == 0 || isNaN(txtCodPostal)) {
+                  alert('ERROR: RELLENE EL CAMPO CON EL CODIGO POSTAL');
+                  document.compra.codPostal.focus();
+                  return false;
+      } else{
+              if (txtMes == null || txtMes.length == 0 || isNaN(txtMes)) {
+                  alert('ERROR: RELLENE EL CAMPO "MES"');
+                  document.compra.mes.focus();
+                  return false;
+      } else{
+              if (txtAno == null || txtAno.length == 0 || isNaN(txtAno)) {
+                  alert('ERROR: RELLENE EL CAMPO "AÑO"');
+                  document.compra.ano.focus();
+                  return false;
+      } else{
+              if (txtCcv == null || txtCcv.length == 0 || isNaN(txtCcv)) {
+                  alert('ERROR: RELLENE EL CCV DE SU TARJETA DE CREDITO');
+                  document.compra.ccv.focus();
+                  return false;
+      }else{
+              if (txtContacto == null || txtContacto.length == 0 || isNaN(txtContacto)) {
+                  alert('ERROR: RELLENE EL CAMPO DE CONTACTO');
+                  document.compra.contacto.focus();
+                  return false;
+              }
+      }
+      }
+      }
+      }
+      }   
+      }
+      }
+    }
+</script>
+    <section id="about-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="about-img">
+                        <img src="images/Animales/fotoAnimal1.jpg" alt="foto animal">
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="about-content">
+                        <h2>¿Qué Animales desea?</h2>
+                        <p>En The Grand Farm tenemos todo tipo de variedades de animales que buscas. En el caso de no encontrarlo por favor hazlo saber en nuestra sección de sugerencias para poder otorgarle más variedad dentro de su servicio.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="middle" class="skill-area" style="background-image: url(images/Animales/fotoStock.jpg)">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 fadeInDown">
+                    <div class="skill">
+                        <h2>Stock Disponible</h2>
+                        <p>Stock disponible de los animales que te ofrece the grand farm</p>
+                    </div>
+                </div>
+                <!--/.col-sm-6-->
+
+                <div class="col-sm-6">
+                    <div class="progress-wrap">
+                        <h3>Vacas</h3>
+                        <div class="progress">
+                            <div class="progress-bar  color1" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 85%">
+                                <span class="bar-width">85%</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="progress-wrap">
+                        <h3>Gallinas</h3>
+                        <div class="progress">
+                            <div class="progress-bar color2" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 95%">
+                                <span class="bar-width">95%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="progress-wrap">
+                        <h3>Ovejas</h3>
+                        <div class="progress">
+                            <div class="progress-bar color3" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                <span class="bar-width">80%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="progress-wrap">
+                        <h3>Gansos</h3>
+                        <div class="progress">
+                            <div class="progress-bar color4" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+                                <span class="bar-width">90%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <!--/.row-->
+        </div>
+        <!--/.container-->
+    </section>
+    <!--/#middle-->
+    
+    <section id="team-area">
+        <div class="container">
+            <div class="center fadeInDown">
+                <h2>Lista de Animales</h2>
+            </div>
+            <div class="row">
+
+                <!-- Container Caballo -->
+                <div class="col-md-4 col-sm-6 single-team">
+                    <div class="inner">
+                        <div class="team-img">
+                            <img class="animal" src="images/Animales/caballo.jpg" alt="">
+                        </div>
+                        <div class="team-content">
+                            <h4>Caballo</h4>
+                            <br>
+                            <div class="team-social">
+                            </div>
+                            <div class="card-footer">
+                                <a href="#ventana1" class="btn btn-primary" data-toggle="modal">Comprar!</a>
+                                <div class="modal fade" id="ventana1">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                         
+                                         <!-- Titular del formulario -->
+                                            <div class="modal-header">
+                                                     <h2 class="modal-title">Confirme sus datos para la compra</h2>
+                                                     <button tyle="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            </div>
+                         
+                                            <!-- Cuerpo del formulario -->
+                                            <div class="modal-body">
+                                                 <form name="compra" action="#" class="credit-card-div" onsubmit="return validarFormulario()">
+                                                         <div class="panel panel-default" >
+                                                          <div class="panel-heading">
+                                                              
+                                                               <div class="row ">
+                                                                     <div class="col-md-12 pad-adjust">
+                                                                             <span class="help-block text-muted small-font">Titular</span>
+                                                                             <input type="text" id="nomTitular" class="form-control" placeholder="--Nombre del titular--" />
+                                                                       </div>
+                                                                     
+                                                                       <div class="col-md-12">
+                                                                              <br>
+                                                                              <span class="help-block text-muted small-font">N°Tarjeta Credito</span>
+                                                                              <input type="text" id="numCredito" class="form-control" placeholder="--Ingrese el número de su tarjeta de credito--" />
+                                                                       </div>
+                         
+                                                                       <div class="col-md-12">
+                                                                             <br>
+                                                                             <span class="help-block text-muted small-font">Despacho</span>
+                                                                             <input type="text" id="direc" class="form-control" placeholder="--Ingrese la dirección de entrega--" />
+                                                                       </div>
+                         
+                                                                       <div class="col-md-12">
+                                                                             <br>
+                                                                             <span class="help-block text-muted small-font">Número Contacto</span>
+                                                                             <input type="text" id="contacto" class="form-control" placeholder="--Ingrese número contacto--" />
+                                                                       </div>
+                         
+                                                                       <div class="col-md-12">
+                                                                             <br>
+                                                                             <span class="help-block text-muted small-font">Codigo Postal</span>
+                                                                             <input type="text" id="codPostal" class="form-control" placeholder="--Ingrese el codigo postal--" />
+                                                                       </div>
+                         
+                                                                   </div>
+                                                              <div class="row ">
+                                                                       <div class="col-md-3 col-sm-3 col-xs-3">
+                                                                           <br>
+                                                                           <span class="help-block text-muted small-font" > Mes de Expiración</span>
+                                                                           <input type="text" id="mes" class="form-control" placeholder="MM" />
+                                                                       </div>
+                                                                  <div class="col-md-3 col-sm-3 col-xs-3">
+                                                                           <br>
+                                                                           <span class="help-block text-muted small-font" >  Año de Expiración</span>
+                                                                           <input type="text" id="ano" class="form-control" placeholder="YY" />
+                                                                       </div>
+                                                                 <div class="col-md-3 col-sm-3 col-xs-3">
+                                                                            <br>
+                                                                           <span class="help-block text-muted small-font" > Cod.Seguridad CCV</span>
+                                                                           <input type="text" id="ccv" class="form-control" placeholder="CCV" />
+                                                                       </div>
+                                                                  <div class="col-md-3 col-sm-3 col-xs-3">
+                                                                      <br>
+                                                                        <img src="/images/Animales/creditCard.png" class="img-rounded" />
+                                                                  </div>
+                                                                   </div>
+                                                              <div class="row ">
+                                                                      
+                                                                   </div>
+                                                              <div class="row">
+                                                         <div class="col-md-12 pad-adjust">
+                                                             <div class="checkbox">
+                                                             <label>
+                                                               <input type="checkbox" checked class="text-muted"> Guardar metodos de pago <a href="#"> Más información aquí </a>
+                                                             </label>
+                                                           </div>
+                                                         </div>
+                                                              </div>
+                         
+                                                                   <div class="modal-footer">
+                                                                         <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                                                                         <button type="submit" class="btn btn-primary" >Confirmar</button>
+                                                  
+                                                                     </div>
+                                                                     
+                                                                 </div>
+                                                                 </div>
+                                                         </form>
+                                            </div>
+                         
+                                            <!-- Footer ventana -->
+                                           
+                                        </div>
+                                    </div>
+                                 </div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Container Cerdo -->
+                <div class="col-md-4 col-sm-6 single-team">
+                    <div class="inner">
+                        <div class="team-img">
+                            <img class="animal" src="images/Animales/cerdo.jpeg" alt="">
+                        </div>
+                        <div class="team-content">
+                            <h4>Cerdo</h4>
+                            <br>
+                            <div class="team-social">
+                            </div>
+                            <div class="card-footer">
+                                <a href="#ventana1" data-toggle="modal" class="btn btn-primary">Comprar!</a>
+                                <div class="modal fade" id="ventana1">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                         
+                                         <!-- Titular del formulario -->
+                                            <div class="modal-header">
+                                                     <h2 class="modal-title">Confirme sus datos para la compra</h2>
+                                                     <button tyle="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            </div>
+                         
+                                            <!-- Cuerpo del formulario -->
+                                            <div class="modal-body">
+                                                 <form name="compra" action="#" class="credit-card-div" onsubmit="return validarFormulario()">
+                                                         <div class="panel panel-default" >
+                                                          <div class="panel-heading">
+                                                              
+                                                               <div class="row ">
+                                                                     <div class="col-md-12 pad-adjust">
+                                                                             <span class="help-block text-muted small-font">Titular</span>
+                                                                             <input type="text" id="nomTitular" class="form-control" placeholder="--Nombre del titular--" />
+                                                                       </div>
+                                                                     
+                                                                       <div class="col-md-12">
+                                                                              <br>
+                                                                              <span class="help-block text-muted small-font">N°Tarjeta Credito</span>
+                                                                              <input type="text" id="numCredito" class="form-control" placeholder="--Ingrese el número de su tarjeta de credito--" />
+                                                                       </div>
+                         
+                                                                       <div class="col-md-12">
+                                                                             <br>
+                                                                             <span class="help-block text-muted small-font">Despacho</span>
+                                                                             <input type="text" id="direc" class="form-control" placeholder="--Ingrese la dirección de entrega--" />
+                                                                       </div>
+                         
+                                                                       <div class="col-md-12">
+                                                                             <br>
+                                                                             <span class="help-block text-muted small-font">Número Contacto</span>
+                                                                             <input type="text" id="contacto" class="form-control" placeholder="--Ingrese número contacto--" />
+                                                                       </div>
+                         
+                                                                       <div class="col-md-12">
+                                                                             <br>
+                                                                             <span class="help-block text-muted small-font">Codigo Postal</span>
+                                                                             <input type="text" id="codPostal" class="form-control" placeholder="--Ingrese el codigo postal--" />
+                                                                       </div>
+                         
+                                                                   </div>
+                                                              <div class="row ">
+                                                                       <div class="col-md-3 col-sm-3 col-xs-3">
+                                                                           <br>
+                                                                           <span class="help-block text-muted small-font" > Mes de Expiración</span>
+                                                                           <input type="text" id="mes" class="form-control" placeholder="MM" />
+                                                                       </div>
+                                                                  <div class="col-md-3 col-sm-3 col-xs-3">
+                                                                           <br>
+                                                                           <span class="help-block text-muted small-font" >  Año de Expiración</span>
+                                                                           <input type="text" id="ano" class="form-control" placeholder="YY" />
+                                                                       </div>
+                                                                 <div class="col-md-3 col-sm-3 col-xs-3">
+                                                                            <br>
+                                                                           <span class="help-block text-muted small-font" > Cod.Seguridad CCV</span>
+                                                                           <input type="text" id="ccv" class="form-control" placeholder="CCV" />
+                                                                       </div>
+                                                                  <div class="col-md-3 col-sm-3 col-xs-3">
+                                                                      <br>
+                                                                        <img src="/images/Animales/creditCard.png" class="img-rounded" />
+                                                                  </div>
+                                                                   </div>
+                                                              <div class="row ">
+                                                                      
+                                                                   </div>
+                                                              <div class="row">
+                                                         <div class="col-md-12 pad-adjust">
+                                                             <div class="checkbox">
+                                                             <label>
+                                                               <input type="checkbox" checked class="text-muted"> Guardar metodos de pago <a href="#"> Más información aquí </a>
+                                                             </label>
+                                                           </div>
+                                                         </div>
+                                                              </div>
+                         
+                                                                   <div class="modal-footer">
+                                                                         <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                                                                         <button type="submit" class="btn btn-primary" >Confirmar</button>
+                                                  
+                                                                     </div>
+                                                                     
+                                                                 </div>
+                                                                 </div>
+                                                         </form>
+                                            </div>
+                         
+                                            <!-- Footer ventana -->
+                                           
+                                        </div>
+                                    </div>
+                                 </div>
+
+                              </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Container Gallina -->
+                <div class="col-md-4 col-sm-6 single-team">
+                    <div class="inner">
+                        <div class="team-img">
+                            <img class="animal" src="images/Animales/gallina.jpg" alt="">
+                        </div>
+                        <div class="team-content">
+                            <h4>Gallina</h4>
+                            <br>
+                            <div class="team-social">
+                            </div>
+                            <div class="card-footer">
+                                <a href="#ventana1" class="btn btn-primary" data-toggle="modal">Comprar!</a>
+                                <div class="modal fade" id="ventana1">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                         
+                                         <!-- Titular del formulario -->
+                                            <div class="modal-header">
+                                                     <h2 class="modal-title">Confirme sus datos para la compra</h2>
+                                                     <button tyle="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            </div>
+                         
+                                            <!-- Cuerpo del formulario -->
+                                            <div class="modal-body">
+                                                 <form name="compra" action="#" class="credit-card-div" onsubmit="return validarFormulario()">
+                                                         <div class="panel panel-default" >
+                                                          <div class="panel-heading">
+                                                              
+                                                               <div class="row ">
+                                                                     <div class="col-md-12 pad-adjust">
+                                                                             <span class="help-block text-muted small-font">Titular</span>
+                                                                             <input type="text" id="nomTitular" class="form-control" placeholder="--Nombre del titular--" />
+                                                                       </div>
+                                                                     
+                                                                       <div class="col-md-12">
+                                                                              <br>
+                                                                              <span class="help-block text-muted small-font">N°Tarjeta Credito</span>
+                                                                              <input type="text" id="numCredito" class="form-control" placeholder="--Ingrese el número de su tarjeta de credito--" />
+                                                                       </div>
+                         
+                                                                       <div class="col-md-12">
+                                                                             <br>
+                                                                             <span class="help-block text-muted small-font">Despacho</span>
+                                                                             <input type="text" id="direc" class="form-control" placeholder="--Ingrese la dirección de entrega--" />
+                                                                       </div>
+                         
+                                                                       <div class="col-md-12">
+                                                                             <br>
+                                                                             <span class="help-block text-muted small-font">Número Contacto</span>
+                                                                             <input type="text" id="contacto" class="form-control" placeholder="--Ingrese número contacto--" />
+                                                                       </div>
+                         
+                                                                       <div class="col-md-12">
+                                                                             <br>
+                                                                             <span class="help-block text-muted small-font">Codigo Postal</span>
+                                                                             <input type="text" id="codPostal" class="form-control" placeholder="--Ingrese el codigo postal--" />
+                                                                       </div>
+                         
+                                                                   </div>
+                                                              <div class="row ">
+                                                                       <div class="col-md-3 col-sm-3 col-xs-3">
+                                                                           <br>
+                                                                           <span class="help-block text-muted small-font" > Mes de Expiración</span>
+                                                                           <input type="text" id="mes" class="form-control" placeholder="MM" />
+                                                                       </div>
+                                                                  <div class="col-md-3 col-sm-3 col-xs-3">
+                                                                           <br>
+                                                                           <span class="help-block text-muted small-font" >  Año de Expiración</span>
+                                                                           <input type="text" id="ano" class="form-control" placeholder="YY" />
+                                                                       </div>
+                                                                 <div class="col-md-3 col-sm-3 col-xs-3">
+                                                                            <br>
+                                                                           <span class="help-block text-muted small-font" > Cod.Seguridad CCV</span>
+                                                                           <input type="text" id="ccv" class="form-control" placeholder="CCV" />
+                                                                       </div>
+                                                                  <div class="col-md-3 col-sm-3 col-xs-3">
+                                                                      <br>
+                                                                        <img src="/images/Animales/creditCard.png" class="img-rounded" />
+                                                                  </div>
+                                                                   </div>
+                                                              <div class="row ">
+                                                                      
+                                                                   </div>
+                                                              <div class="row">
+                                                         <div class="col-md-12 pad-adjust">
+                                                             <div class="checkbox">
+                                                             <label>
+                                                               <input type="checkbox" checked class="text-muted"> Guardar metodos de pago <a href="#"> Más información aquí </a>
+                                                             </label>
+                                                           </div>
+                                                         </div>
+                                                              </div>
+                         
+                                                                   <div class="modal-footer">
+                                                                         <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                                                                         <button type="submit" class="btn btn-primary" >Confirmar</button>
+                                                  
+                                                                     </div>
+                                                                     
+                                                                 </div>
+                                                                 </div>
+                                                         </form>
+                                            </div>
+                         
+                                            <!-- Footer ventana -->
+                                           
+                                        </div>
+                                    </div>
+                                 </div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Container Ganso -->
+                <div class="col-md-4 col-sm-6 single-team">
+                    <div class="inner">
+                        <div class="team-img">
+                            <img class="animal" src="images/Animales/ganso.jpg" alt="">
+                        </div>
+                        <div class="team-content">
+                            <h4>Ganso</h4>
+                            <br>
+                            <div class="team-social">
+                            </div>
+                            <div class="card-footer">
+                                <a href="#ventana1" class="btn btn-primary" data-toggle="modal">Comprar!</a>
+                                <div class="modal fade" id="ventana1">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                         
+                                         <!-- Titular del formulario -->
+                                            <div class="modal-header">
+                                                     <h2 class="modal-title">Confirme sus datos para la compra</h2>
+                                                     <button tyle="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            </div>
+                         
+                                            <!-- Cuerpo del formulario -->
+                                            <div class="modal-body">
+                                                 <form name="compra" action="#" class="credit-card-div" onsubmit="return validarFormulario()">
+                                                         <div class="panel panel-default" >
+                                                          <div class="panel-heading">
+                                                              
+                                                               <div class="row ">
+                                                                     <div class="col-md-12 pad-adjust">
+                                                                             <span class="help-block text-muted small-font">Titular</span>
+                                                                             <input type="text" id="nomTitular" class="form-control" placeholder="--Nombre del titular--" />
+                                                                       </div>
+                                                                     
+                                                                       <div class="col-md-12">
+                                                                              <br>
+                                                                              <span class="help-block text-muted small-font">N°Tarjeta Credito</span>
+                                                                              <input type="text" id="numCredito" class="form-control" placeholder="--Ingrese el número de su tarjeta de credito--" />
+                                                                       </div>
+                         
+                                                                       <div class="col-md-12">
+                                                                             <br>
+                                                                             <span class="help-block text-muted small-font">Despacho</span>
+                                                                             <input type="text" id="direc" class="form-control" placeholder="--Ingrese la dirección de entrega--" />
+                                                                       </div>
+                         
+                                                                       <div class="col-md-12">
+                                                                             <br>
+                                                                             <span class="help-block text-muted small-font">Número Contacto</span>
+                                                                             <input type="text" id="contacto" class="form-control" placeholder="--Ingrese número contacto--" />
+                                                                       </div>
+                         
+                                                                       <div class="col-md-12">
+                                                                             <br>
+                                                                             <span class="help-block text-muted small-font">Codigo Postal</span>
+                                                                             <input type="text" id="codPostal" class="form-control" placeholder="--Ingrese el codigo postal--" />
+                                                                       </div>
+                         
+                                                                   </div>
+                                                              <div class="row ">
+                                                                       <div class="col-md-3 col-sm-3 col-xs-3">
+                                                                           <br>
+                                                                           <span class="help-block text-muted small-font" > Mes de Expiración</span>
+                                                                           <input type="text" id="mes" class="form-control" placeholder="MM" />
+                                                                       </div>
+                                                                  <div class="col-md-3 col-sm-3 col-xs-3">
+                                                                           <br>
+                                                                           <span class="help-block text-muted small-font" >  Año de Expiración</span>
+                                                                           <input type="text" id="ano" class="form-control" placeholder="YY" />
+                                                                       </div>
+                                                                 <div class="col-md-3 col-sm-3 col-xs-3">
+                                                                            <br>
+                                                                           <span class="help-block text-muted small-font" > Cod.Seguridad CCV</span>
+                                                                           <input type="text" id="ccv" class="form-control" placeholder="CCV" />
+                                                                       </div>
+                                                                  <div class="col-md-3 col-sm-3 col-xs-3">
+                                                                      <br>
+                                                                        <img src="/images/Animales/creditCard.png" class="img-rounded" />
+                                                                  </div>
+                                                                   </div>
+                                                              <div class="row ">
+                                                                      
+                                                                   </div>
+                                                              <div class="row">
+                                                         <div class="col-md-12 pad-adjust">
+                                                             <div class="checkbox">
+                                                             <label>
+                                                               <input type="checkbox" checked class="text-muted"> Guardar metodos de pago <a href="#"> Más información aquí </a>
+                                                             </label>
+                                                           </div>
+                                                         </div>
+                                                              </div>
+                         
+                                                                   <div class="modal-footer">
+                                                                         <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                                                                         <button type="submit" class="btn btn-primary" >Confirmar</button>
+                                                  
+                                                                     </div>
+                                                                     
+                                                                 </div>
+                                                                 </div>
+                                                         </form>
+                                            </div>
+                         
+                                            <!-- Footer ventana -->
+                                           
+                                        </div>
+                                    </div>
+                                 </div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Container Oveja -->
+                <div class="col-md-4 col-sm-6 single-team">
+                    <div class="inner">
+                        <div class="team-img">
+                            <img class="animal" src="images/Animales/oveja.jpg" alt="">
+                        </div>
+                        <div class="team-content">
+                            <h4>Oveja</h4>
+                            <br>
+                            <div class="team-social">
+                            </div>
+                             <div class="card-footer">
+                                <a href="#ventana1" class="btn btn-primary" data-toggle="modal">Comprar!</a>
+                                <div class="modal fade" id="ventana1">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                         
+                                         <!-- Titular del formulario -->
+                                            <div class="modal-header">
+                                                     <h2 class="modal-title">Confirme sus datos para la compra</h2>
+                                                     <button tyle="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            </div>
+                         
+                                            <!-- Cuerpo del formulario -->
+                                            <div class="modal-body">
+                                                 <form name="compra" action="#" class="credit-card-div" onsubmit="return validarFormulario()">
+                                                         <div class="panel panel-default" >
+                                                          <div class="panel-heading">
+                                                              
+                                                               <div class="row ">
+                                                                     <div class="col-md-12 pad-adjust">
+                                                                             <span class="help-block text-muted small-font">Titular</span>
+                                                                             <input type="text" id="nomTitular" class="form-control" placeholder="--Nombre del titular--" />
+                                                                       </div>
+                                                                     
+                                                                       <div class="col-md-12">
+                                                                              <br>
+                                                                              <span class="help-block text-muted small-font">N°Tarjeta Credito</span>
+                                                                              <input type="text" id="numCredito" class="form-control" placeholder="--Ingrese el número de su tarjeta de credito--" />
+                                                                       </div>
+                         
+                                                                       <div class="col-md-12">
+                                                                             <br>
+                                                                             <span class="help-block text-muted small-font">Despacho</span>
+                                                                             <input type="text" id="direc" class="form-control" placeholder="--Ingrese la dirección de entrega--" />
+                                                                       </div>
+                         
+                                                                       <div class="col-md-12">
+                                                                             <br>
+                                                                             <span class="help-block text-muted small-font">Número Contacto</span>
+                                                                             <input type="text" id="contacto" class="form-control" placeholder="--Ingrese número contacto--" />
+                                                                       </div>
+                         
+                                                                       <div class="col-md-12">
+                                                                             <br>
+                                                                             <span class="help-block text-muted small-font">Codigo Postal</span>
+                                                                             <input type="text" id="codPostal" class="form-control" placeholder="--Ingrese el codigo postal--" />
+                                                                       </div>
+                         
+                                                                   </div>
+                                                              <div class="row ">
+                                                                       <div class="col-md-3 col-sm-3 col-xs-3">
+                                                                           <br>
+                                                                           <span class="help-block text-muted small-font" > Mes de Expiración</span>
+                                                                           <input type="text" id="mes" class="form-control" placeholder="MM" />
+                                                                       </div>
+                                                                  <div class="col-md-3 col-sm-3 col-xs-3">
+                                                                           <br>
+                                                                           <span class="help-block text-muted small-font" >  Año de Expiración</span>
+                                                                           <input type="text" id="ano" class="form-control" placeholder="YY" />
+                                                                       </div>
+                                                                 <div class="col-md-3 col-sm-3 col-xs-3">
+                                                                            <br>
+                                                                           <span class="help-block text-muted small-font" > Cod.Seguridad CCV</span>
+                                                                           <input type="text" id="ccv" class="form-control" placeholder="CCV" />
+                                                                       </div>
+                                                                  <div class="col-md-3 col-sm-3 col-xs-3">
+                                                                      <br>
+                                                                        <img src="/images/Animales/creditCard.png" class="img-rounded" />
+                                                                  </div>
+                                                                   </div>
+                                                              <div class="row ">
+                                                                      
+                                                                   </div>
+                                                              <div class="row">
+                                                         <div class="col-md-12 pad-adjust">
+                                                             <div class="checkbox">
+                                                             <label>
+                                                               <input type="checkbox" checked class="text-muted"> Guardar metodos de pago <a href="#"> Más información aquí </a>
+                                                             </label>
+                                                           </div>
+                                                         </div>
+                                                              </div>
+                         
+                                                                   <div class="modal-footer">
+                                                                         <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                                                                         <button type="submit" class="btn btn-primary" >Confirmar</button>
+                                                  
+                                                                     </div>
+                                                                     
+                                                                 </div>
+                                                                 </div>
+                                                         </form>
+                                            </div>
+                         
+                                            <!-- Footer ventana -->
+                                           
+                                        </div>
+                                    </div>
+                                 </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Container Vaca -->
+                <div class="col-md-4 col-sm-6 single-team">
+                    <div class="inner">
+                        <div class="team-img">
+                            <img class="animal" src="images/Animales/vaca.jpg" alt="">
+                        </div>
+                        <div class="team-content">
+                            <h4>Vaca</h4>
+                            <br>
+                            <div class="team-social">
+                            </div>
+                            <div class="card-footer">
+                                <a href="#ventana1" class="btn btn-primary" data-toggle="modal">Comprar!</a>
+                                <div class="modal fade" id="ventana1">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                         
+                                         <!-- Titular del formulario -->
+                                            <div class="modal-header">
+                                                     <h2 class="modal-title">Confirme sus datos para la compra</h2>
+                                                     <button tyle="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            </div>
+                         
+                                            <!-- Cuerpo del formulario -->
+                                            <div class="modal-body">
+                                                 <form name="compra" action="#" class="credit-card-div" onsubmit="return validarFormulario()">
+                                                         <div class="panel panel-default" >
+                                                          <div class="panel-heading">
+                                                              
+                                                               <div class="row ">
+                                                                     <div class="col-md-12 pad-adjust">
+                                                                             <span class="help-block text-muted small-font">Titular</span>
+                                                                             <input type="text" id="nomTitular" class="form-control" placeholder="--Nombre del titular--" />
+                                                                       </div>
+                                                                     
+                                                                       <div class="col-md-12">
+                                                                              <br>
+                                                                              <span class="help-block text-muted small-font">N°Tarjeta Credito</span>
+                                                                              <input type="text" id="numCredito" class="form-control" placeholder="--Ingrese el número de su tarjeta de credito--" />
+                                                                       </div>
+                         
+                                                                       <div class="col-md-12">
+                                                                             <br>
+                                                                             <span class="help-block text-muted small-font">Despacho</span>
+                                                                             <input type="text" id="direc" class="form-control" placeholder="--Ingrese la dirección de entrega--" />
+                                                                       </div>
+                         
+                                                                       <div class="col-md-12">
+                                                                             <br>
+                                                                             <span class="help-block text-muted small-font">Número Contacto</span>
+                                                                             <input type="text" id="contacto" class="form-control" placeholder="--Ingrese número contacto--" />
+                                                                       </div>
+                         
+                                                                       <div class="col-md-12">
+                                                                             <br>
+                                                                             <span class="help-block text-muted small-font">Codigo Postal</span>
+                                                                             <input type="text" id="codPostal" class="form-control" placeholder="--Ingrese el codigo postal--" />
+                                                                       </div>
+                         
+                                                                   </div>
+                                                              <div class="row ">
+                                                                       <div class="col-md-3 col-sm-3 col-xs-3">
+                                                                           <br>
+                                                                           <span class="help-block text-muted small-font" > Mes de Expiración</span>
+                                                                           <input type="text" id="mes" class="form-control" placeholder="MM" />
+                                                                       </div>
+                                                                  <div class="col-md-3 col-sm-3 col-xs-3">
+                                                                           <br>
+                                                                           <span class="help-block text-muted small-font" >  Año de Expiración</span>
+                                                                           <input type="text" id="ano" class="form-control" placeholder="YY" />
+                                                                       </div>
+                                                                 <div class="col-md-3 col-sm-3 col-xs-3">
+                                                                            <br>
+                                                                           <span class="help-block text-muted small-font" > Cod.Seguridad CCV</span>
+                                                                           <input type="text" id="ccv" class="form-control" placeholder="CCV" />
+                                                                       </div>
+                                                                  <div class="col-md-3 col-sm-3 col-xs-3">
+                                                                      <br>
+                                                                        <img src="images/Animales/creditCard.png" class="img-rounded" />
+                                                                  </div>
+                                                                   </div>
+                                                              <div class="row ">
+                                                                      
+                                                                   </div>
+                                                              <div class="row">
+                                                         <div class="col-md-12 pad-adjust">
+                                                             <div class="checkbox">
+                                                             <label>
+                                                               <input type="checkbox" checked class="text-muted"> Guardar metodos de pago <a href="#"> Más información aquí </a>
+                                                             </label>
+                                                           </div>
+                                                         </div>
+                                                              </div>
+                         
+                                                                   <div class="modal-footer">
+                                                                         <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                                                                         <button type="submit" class="btn btn-primary" >Confirmar</button>
+                                                  
+                                                                    </div>
+                                                                     
+                                                                 </div>
+                                                                 </div>
+                                                         </form>
+                                            </div>
+                         
+                                            <!-- Footer ventana -->
+                                           
+                                        </div>
+                                    </div>
+                                 </div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
