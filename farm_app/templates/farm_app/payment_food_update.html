@@ -1,0 +1,69 @@
+{% extends 'farm_app/base.html' %}
+{% load static %}
+{% block content %}  
+{% if status == 'OK' %}
+<div class="alert alert-success" role="alert">
+    Datos actualizados exitosamente!
+</div>
+{% elif status == 'ERROR' %}
+<div class="alert alert-danger" role="alert">
+    Ocurrion un error desconocido, porfavor intentelo mas tarde.
+</div>
+{% endif %}
+
+<div class="center fadeInDown">
+    <h2>Modificar Pedido de Alimentos</h2>
+</div>
+
+<form class="credit-card-div" method="POST">{% csrf_token %}
+    <div class="panel panel-default" >
+        <div class="panel-heading">
+            <div class="row ">
+
+                <div class="col-md-12 pad-adjust">
+                    <span class="help-block text-muted small-font">Rut:</span>
+                    <input type="text" id="txtRut" class="form-control" name="txtRut" placeholder="--Ingrese su Rut--" value="{{pedido.rut}}" />
+                </div>
+
+                <div class="col-md-12">
+                    <br>
+                    <span class="help-block text-muted small-font">N°Tarjeta Credito:</span>
+                    <input type="text" id="txtNumTarjeta" class="form-control" name="txtNumTarjeta" placeholder="--Ingrese el número de su tarjeta de credito--" value="{{pedido.num_cuenta}}" />
+                </div>
+
+                <div class="col-md-12">
+                    <br>
+                    <span class="help-block text-muted small-font">Correo Electronico:</span>
+                    <input type="email" id="txtCorreo" class="form-control" name="txtCorreo" placeholder="--Ingrese el correo electronico--" value="{{pedido.correo}}" />
+                </div>
+
+                <div class="col-md-12">
+                    <br>
+                    <span class="help-block text-muted small-font">Producto:</span>
+                    <select name="txtProducto" id="txtProducto" class="form-control" name="txtProducto" >
+                        {% for x in producto %}
+                            <option value="{{x}}" {% if x == pedido.product %} selected {% endif %}>{{x}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="col-md-12">
+                    <br>
+                    <span class="help-block text-muted small-font">Forma de pago:</span>
+                    <select name="txtFormaPago" id="txtFormaPago" class="form-control" name="txtFormaPago">
+                        {% for y in formaPago %}
+                            <option value="{{y}}" {% if y == pedido.pay %} selected {% endif %}>{{y}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" id="btn-actualizar">Confirmar</button>
+            </div>
+
+        </div>
+    </div>
+</form>
+{% endblock content%}

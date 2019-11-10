@@ -81,8 +81,8 @@
 {% endif %}
 
 <div class="center fadeInDown">
-    <h2>Lista de Pedidos de Alimentos</h2>
-  </div>
+  <h2>Lista de Pedidos de Alimentos</h2>
+</div>
 <section id="team-area">
   <div class="container">
       <div class="row">
@@ -101,8 +101,8 @@
               <h2>Producto Encargado: {{x.product}}</h2>
               <br>
               <div class="card-footer">
-                <a href="#ventana1" class="btn btn-primary" data-toggle="modal">Modificar</a>
                 <a href="#ventana1" onclick="confirmOption('eliminar', '/payment_food_delete/{{x.pk}}')" class="btn btn-primary" >Eliminar</a>
+                <a href="#ventana1" onclick="confirmOption('actualizar', '/payment_food_update/{{x.pk}}')" class="btn btn-primary" >Modificar</a>
               </div>
             </div>
           </div>

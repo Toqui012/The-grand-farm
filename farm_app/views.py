@@ -42,5 +42,28 @@ def payment_food_delete(request,id):
                 'list': list}
     return render(request, 'farm_app/payment_food_list.html', variables)
 
+def payment_food_update(request,id):
+    status = ''
+    producto = ['Dapac Cerdas','Aviplus','Camperbroiler Granulado','Conchilla','Dapac Vacas','Nantacor','Guidolin Nutri Potros','Red Kite']
+    formaPago = ['Tarjeta','Paypal']
+    pedido = Payment_food.objects.get(pk = id)
+    if request.method == 'POST':
+        try:
+            pedido = Payment_food.objects.get(pk = id)
+            pedido.rut = request.POST.get('txtRut') if request.POST.get('txtRut') != None else pedido.rut
+            pedido.num_cuenta = request.POST.get('txtNumTarjeta') if request.POST.get('txtNumTarjeta') != None else pedido.num_cuenta
+            pedido.correo = request.POST.get('txtCorreo') if request.POST.get('txtCorreo') != None else pedido.correo
+            pedido.product = request.POST.get('txtProducto') if request.POST.get('txtProducto') != None else pedido.product
+            pedido.pay = request.POST.get('txtFormaPago') if request.POST.get('txtFormaPago') != None else pedido.pay
+            pedido.save()
+            status = 'OK'
+        except: 
+            status = 'ERROR'
+    variables = {'status': status,
+                 'producto': producto,
+                 'formaPago': formaPago,
+                 'pedido': pedido}
+    return render(request,'farm_app/payment_food_update.html', variables)
+
 
         
