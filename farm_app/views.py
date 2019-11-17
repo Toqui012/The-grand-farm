@@ -5,6 +5,19 @@ from .models import Payment_food #punto significa directorio actual
 def payment_food_list(request):
     list = Payment_food.objects.all()
     status = ''
+    if request.method == 'POST':
+        try:
+            status = 'SEARCH'
+            rut_busca = request.POST.get('buscar_rut')
+            if Payment_food.objects.all().filter(rut = rut_busca).exists() == True:
+                list = Payment_food.objects.filter(rut = rut_busca)
+            else:
+                if Payment_food.objects.all().filter(pk = rut_busca).exists() == True:
+                    list = Payment_food.objects.filter(pk = rut_busca)
+                else:
+                    list = Payment_food.objects.all()
+        except:
+            status = 'NOTSEARCH'
     variables = {'status': status,
                   'list': list}
     return render(request,'farm_app/payment_food_list.html', variables)
@@ -64,6 +77,3 @@ def payment_food_update(request,id):
                  'formaPago': formaPago,
                  'pedido': pedido}
     return render(request,'farm_app/payment_food_update.html', variables)
-
-
-        

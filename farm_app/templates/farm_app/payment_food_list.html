@@ -71,7 +71,6 @@
           window.location.href = direccion;
         }
       }
-
 </script>
 
 {% if status == 'DELETED' %}
@@ -80,8 +79,26 @@
   </div>
 {% endif %}
 
+{% if status == 'SEARCH' %}
+  <div class="alert alert-success" role="alert">
+    Alimento Encontrado Exitosamente
+  </div>
+
+{% elif status == 'NOTSEARCH' %}
+  <div class="alert alert-danger" role="alert">
+    Ocurrio Un Error Inesperado
+  </div>
+{% endif %}
+
 <div class="center fadeInDown">
   <h2>Lista de Pedidos de Alimentos</h2>
+  <form method="POST"> {% csrf_token %}    
+    <div class="from-group">
+      <label for="label_buscar ">Buscar: </label>
+      <input type="text" name="buscar_rut" id="buscar_rut" placeholder="  --Ingrese el rut a buscar--" style="width: 180px; ">
+      <button type="submit" name="submit" class="btn btn-primary btn-lg">Buscar</button>
+    </div>
+  </form>
 </div>
 <section id="team-area">
   <div class="container">
