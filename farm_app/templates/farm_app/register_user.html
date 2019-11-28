@@ -1,0 +1,101 @@
+{% extends 'farm_app/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="center fadeInDown">
+    <h2>Bienvenido al registro de los usuarios</h2>
+</div>
+
+<section style="padding-left: 40px; padding-right: 40px;">
+    <form class="register-form" method="POST";">{% csrf_token %}
+        <div style="background-color: #2E2E2E;">
+            <div class="panel-heading">
+            </div>
+    
+            <div class="panel-body" class="form-group">
+                <div class="col-md-10 pad-adjust">
+                    <span class="help-block text-muted small-font" style="color: whitesmoke; font-family: Arial, Helvetica, sans-serif; font-size: 24px;">Nombre Usuario:</span>
+                    <input type="text" name="txt_nameuser" id="txt_nameuser" class="form-control">
+                    <br>
+                </div>
+
+                <div class="col-md-10 pad-adjust" class="form-group">
+                    <span class="help-block text-,uted small-font" style="color: whitesmoke; font-family: Arial, Helvetica, sans-serif; font-size: 24px;">Contraseña:</span>
+                    <input type="text" name="txt_pass" id="txt_pass" class="form-control">
+                </div>
+
+                <div class="col-md-10 pad-adjust" class="form-group">
+                    <span class="help-block text-,uted small-font" style="color: whitesmoke; font-family: Arial, Helvetica, sans-serif; font-size: 24px;">Email:</span>
+                    <input type="text" name="txt_email" id="txt_email" class="form-control">
+                </div>
+            </div>
+    
+            <div class="modal-footer" style="background-color: #2E2E2E;">
+                <button type="submit" class="btn btn-primary" id="btn-actualizar">Confirmar</button>
+            </div>
+            
+        </div>
+    </form>
+</section>
+
+<br>
+<br>
+
+<section id="feature">
+        <div class="container">
+            <div class="center fadeInDown">
+                <h2>¿Que ganas con tener tu cuenta?</h2>
+                <p class="lead">Ofrecemos todo tipo de servicio de animales para las personas dedicadas a la ganaderia <br> animales, comida, información y mucho más dentro de "The Grand Farm"</p>
+            </div>
+    
+            <div class="row">
+                <div class="features">
+                    <div class="col-md-3 col-sm-4 fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="feature-wrap">
+                            <div class="icon">
+                                <i class="fa fa-rocket"></i>
+                            </div>
+                            <h2>Accesible</h2>
+                            <p>The Grand Farm te ofrece uno de servicios mas rapidos y accesible dentro de todas las plataformas</p>
+                        </div>
+                    </div>
+                    <!--/.col-md-3-->
+                    <div class="col-md-3 col-sm-4 fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="feature-wrap">
+                            <div class="icon">
+                                <i class="fa fa-check"></i>
+                            </div>
+                            <h2>Facil</h2>
+                            <p>The Grand Farm te ofrece las experiencias que más se ajusten con tus expectativas</p>
+                        </div>
+                    </div>
+                    <!--/.col-md-3-->
+                    <div class="col-md-3 col-sm-4 fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="feature-wrap">
+                            <div class="icon">
+                                <i class="fa fa-bullhorn"></i>
+                            </div>
+                            <h2>Barato</h2>
+                            <p>The Grand Farm te ofrece los mejores animales por los mejores precios</p>
+                        </div>
+                    </div>
+                    <!--/.col-md-3-->
+                    <div class="col-md-3 col-sm-4 fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="feature-wrap">
+                            <div class="icon">
+                                <i class="fa fa-arrows"></i>
+                            </div>
+                            <h2>Expansivo</h2>
+                            <p>The Grand Farm ademas de contar de servicio de ventas. Tambien cuenta con servicio de asesoria para tu granja</p>
+                        </div>
+                    </div>
+                    <!--/.col-md-3-->
+                </div>
+                <!--/.services-->
+            </div>
+            <!--/.row-->
+        </div>
+        <!--/.container-->
+    </section>
+
+{% endblock content%}

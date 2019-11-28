@@ -77,3 +77,6 @@ def payment_food_update(request,id):
                  'formaPago': formaPago,
                  'pedido': pedido}
     return render(request,'farm_app/payment_food_update.html', variables)
+
+def register_user(request):
+    return render(request,'farm_app/register_user.html')

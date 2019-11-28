@@ -9,5 +9,6 @@ urlpatterns = [
     path('payment_animal/',views.payment_animal, name='payment_animal'),
     path('payment_food_delete/<int:id>', views.payment_food_delete, name='payment_food_delete'),
     path('payment_food_update/<int:id>',views.payment_food_update, name='payment_food_update'),
+    path('register_user/',views.register_user, name= 'register_user'),
     # path('payment_food_delete/',views.payment_food_delete, name="payment_food_delete")
 ]
