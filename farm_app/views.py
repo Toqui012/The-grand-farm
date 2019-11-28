@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Payment_food #punto significa directorio actual
+from django.contrib.auth.models import User
 
 # Create your views here. 
 def payment_food_list(request):
@@ -79,4 +80,18 @@ def payment_food_update(request,id):
     return render(request,'farm_app/payment_food_update.html', variables)
 
 def register_user(request):
-    return render(request,'farm_app/register_user.html')
+    status = ''
+    if request.method == 'POST':
+        user = User()
+        try:
+            user = User.objects.create_user(username = request.POST.get('txtRut'),
+            password = request.POST.get('txtPass'),
+            email = request.POST.get('txtCorreo'),
+            last_name = request.POST.get('txtApellido'),
+            first_name = request.POST.get('txtNombre'))
+        except:
+            status = 'ERROR'
+            return render(request,'farm_app/register_user.html', {'status' : status})
+        user.save()
+        status= 'OK'
+    return render(request,'farm_app/register_user.html', {'status' : status})

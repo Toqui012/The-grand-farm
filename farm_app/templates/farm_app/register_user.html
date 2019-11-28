@@ -6,40 +6,92 @@
     <h2>Bienvenido al registro de los usuarios</h2>
 </div>
 
-<section style="padding-left: 40px; padding-right: 40px;">
-    <form class="register-form" method="POST";">{% csrf_token %}
-        <div style="background-color: #2E2E2E;">
-            <div class="panel-heading">
-            </div>
-    
-            <div class="panel-body" class="form-group">
-                <div class="col-md-10 pad-adjust">
-                    <span class="help-block text-muted small-font" style="color: whitesmoke; font-family: Arial, Helvetica, sans-serif; font-size: 24px;">Nombre Usuario:</span>
-                    <input type="text" name="txt_nameuser" id="txt_nameuser" class="form-control">
-                    <br>
-                </div>
+    {% if status == 'OK' %}
+        <div class="alert alert-success" role="alert">
+            Usuario Registrado exitosamente!
+        </div>
 
-                <div class="col-md-10 pad-adjust" class="form-group">
-                    <span class="help-block text-,uted small-font" style="color: whitesmoke; font-family: Arial, Helvetica, sans-serif; font-size: 24px;">Contraseña:</span>
-                    <input type="text" name="txt_pass" id="txt_pass" class="form-control">
-                </div>
-
-                <div class="col-md-10 pad-adjust" class="form-group">
-                    <span class="help-block text-,uted small-font" style="color: whitesmoke; font-family: Arial, Helvetica, sans-serif; font-size: 24px;">Email:</span>
-                    <input type="text" name="txt_email" id="txt_email" class="form-control">
-                </div>
-            </div>
+    {% elif status == 'ERROR' %}
+        <div class="alert alert-danger" role="alert">
+            Ha habido un problema para registrar usuario
+        </div>
+    {% endif %}
     
-            <div class="modal-footer" style="background-color: #2E2E2E;">
-                <button type="submit" class="btn btn-primary" id="btn-actualizar">Confirmar</button>
+
+<section style="padding-left: 27%;">
+    <form method="POST" class="register_form">{% csrf_token %}
+        <div class="col-sm-5 col-sm-offset-1">
+            <div class="form-group">
+                <label for="nom">Rut:</label>
+                <input type="text" name="txtRut" id="txtRut" class="form-control" placeholder="Ingrese su rut aqui">
+                <br>
             </div>
-            
+
+            <div class="form-group">
+                <label for="nom">Nombre:</label>
+                <input type="text" name="txtNombre" id="txtNombre" class="form-control" placeholder="Ingrese su rut aqui">
+                <br>
+            </div>
+
+            <div class="form-group">
+                <label for="nom">Apellido:</label>
+                <input type="text" name="txtApellido" id="txtApellido" class="form-control" placeholder="Ingrese su rut aqui">
+                <br>
+            </div>
+
+            <div class="form-group">
+                <label for="nom">Correo:</label>
+                <input type="text" name="txtCorreo" id="txtCorreo" class="form-control" placeholder="Ingrese su rut aqui">
+                <br>
+            </div>
+
+            <div class="form-group">
+                <label for="nom">Contraseña:</label>
+                <input type="text" name="txtPass" id="txtPass" class="form-control" placeholder="Ingrese su rut aqui">
+                <br>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" name="submit" class="btn btn-primary btn-lg">Crear Cuenta</button>
+            </div>
+
         </div>
     </form>
 </section>
 
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 <section id="feature">
         <div class="container">
