@@ -2,152 +2,157 @@
 {% load static %}
 
 {% block content %}
-<div class="center fadeInDown">
-    <h2>Bienvenido al registro de los usuarios</h2>
-</div>
+    <div class="center fadeInDown">
+        <h2>Bienvenido al registro de los usuarios</h2>
+    </div>
 
-    {% if status == 'OK' %}
-        <div class="alert alert-success" role="alert">
-            Usuario Registrado exitosamente!
-        </div>
-
-    {% elif status == 'ERROR' %}
-        <div class="alert alert-danger" role="alert">
-            Ha habido un problema para registrar usuario
-        </div>
-    {% endif %}
-    
-
-<section style="padding-left: 27%;">
-    <form method="POST" class="register_form">{% csrf_token %}
-        <div class="col-sm-5 col-sm-offset-1">
-            <div class="form-group">
-                <label for="nom">Rut:</label>
-                <input type="text" name="txtRut" id="txtRut" class="form-control" placeholder="Ingrese su rut aqui">
-                <br>
+        {% if status == 'OK' %}
+            <div class="alert alert-success" role="alert">
+                Usuario Registrado exitosamente!
             </div>
 
-            <div class="form-group">
-                <label for="nom">Nombre:</label>
-                <input type="text" name="txtNombre" id="txtNombre" class="form-control" placeholder="Ingrese su rut aqui">
-                <br>
+        {% elif status == 'ERROR' %}
+            <div class="alert alert-danger" role="alert">
+                Ha habido un problema para registrar usuario
             </div>
-
-            <div class="form-group">
-                <label for="nom">Apellido:</label>
-                <input type="text" name="txtApellido" id="txtApellido" class="form-control" placeholder="Ingrese su rut aqui">
-                <br>
-            </div>
-
-            <div class="form-group">
-                <label for="nom">Correo:</label>
-                <input type="text" name="txtCorreo" id="txtCorreo" class="form-control" placeholder="Ingrese su rut aqui">
-                <br>
-            </div>
-
-            <div class="form-group">
-                <label for="nom">Contraseña:</label>
-                <input type="text" name="txtPass" id="txtPass" class="form-control" placeholder="Ingrese su rut aqui">
-                <br>
-            </div>
-
-            <div class="form-group">
-                <button type="submit" name="submit" class="btn btn-primary btn-lg">Crear Cuenta</button>
-            </div>
-
-        </div>
-    </form>
-</section>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-<section id="feature">
-        <div class="container">
-            <div class="center fadeInDown">
-                <h2>¿Que ganas con tener tu cuenta?</h2>
-                <p class="lead">Ofrecemos todo tipo de servicio de animales para las personas dedicadas a la ganaderia <br> animales, comida, información y mucho más dentro de "The Grand Farm"</p>
-            </div>
-    
-            <div class="row">
-                <div class="features">
-                    <div class="col-md-3 col-sm-4 fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                        <div class="feature-wrap">
-                            <div class="icon">
-                                <i class="fa fa-rocket"></i>
-                            </div>
-                            <h2>Accesible</h2>
-                            <p>The Grand Farm te ofrece uno de servicios mas rapidos y accesible dentro de todas las plataformas</p>
-                        </div>
-                    </div>
-                    <!--/.col-md-3-->
-                    <div class="col-md-3 col-sm-4 fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                        <div class="feature-wrap">
-                            <div class="icon">
-                                <i class="fa fa-check"></i>
-                            </div>
-                            <h2>Facil</h2>
-                            <p>The Grand Farm te ofrece las experiencias que más se ajusten con tus expectativas</p>
-                        </div>
-                    </div>
-                    <!--/.col-md-3-->
-                    <div class="col-md-3 col-sm-4 fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                        <div class="feature-wrap">
-                            <div class="icon">
-                                <i class="fa fa-bullhorn"></i>
-                            </div>
-                            <h2>Barato</h2>
-                            <p>The Grand Farm te ofrece los mejores animales por los mejores precios</p>
-                        </div>
-                    </div>
-                    <!--/.col-md-3-->
-                    <div class="col-md-3 col-sm-4 fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                        <div class="feature-wrap">
-                            <div class="icon">
-                                <i class="fa fa-arrows"></i>
-                            </div>
-                            <h2>Expansivo</h2>
-                            <p>The Grand Farm ademas de contar de servicio de ventas. Tambien cuenta con servicio de asesoria para tu granja</p>
-                        </div>
-                    </div>
-                    <!--/.col-md-3-->
+        {% endif %}
+        
+{% if user.is_authenticated %}
+    <div class="alert alert-danger" role="alert">
+        Usted ya esta registrado!
+    </div>
+{% else %}
+    <section style="padding-left: 27%;">
+        <form method="POST" class="register_form">{% csrf_token %}
+            <div class="col-sm-5 col-sm-offset-1">
+                <div class="form-group">
+                    <label for="nom">Rut:</label>
+                    <input type="text" name="txtRut" id="txtRut" class="form-control" placeholder="Ingrese su rut aqui">
+                    <br>
                 </div>
-                <!--/.services-->
+
+                <div class="form-group">
+                    <label for="nom">Nombre:</label>
+                    <input type="text" name="txtNombre" id="txtNombre" class="form-control" placeholder="Ingrese su rut aqui">
+                    <br>
+                </div>
+
+                <div class="form-group">
+                    <label for="nom">Apellido:</label>
+                    <input type="text" name="txtApellido" id="txtApellido" class="form-control" placeholder="Ingrese su rut aqui">
+                    <br>
+                </div>
+
+                <div class="form-group">
+                    <label for="nom">Correo:</label>
+                    <input type="text" name="txtCorreo" id="txtCorreo" class="form-control" placeholder="Ingrese su rut aqui">
+                    <br>
+                </div>
+
+                <div class="form-group">
+                    <label for="nom">Contraseña:</label>
+                    <input type="text" name="txtPass" id="txtPass" class="form-control" placeholder="Ingrese su rut aqui">
+                    <br>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" name="submit" class="btn btn-primary btn-lg">Crear Cuenta</button>
+                </div>
+
             </div>
-            <!--/.row-->
-        </div>
-        <!--/.container-->
+        </form>
     </section>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <section id="feature">
+            <div class="container">
+                <div class="center fadeInDown">
+                    <h2>¿Que ganas con tener tu cuenta?</h2>
+                    <p class="lead">Ofrecemos todo tipo de servicio de animales para las personas dedicadas a la ganaderia <br> animales, comida, información y mucho más dentro de "The Grand Farm"</p>
+                </div>
+        
+                <div class="row">
+                    <div class="features">
+                        <div class="col-md-3 col-sm-4 fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                            <div class="feature-wrap">
+                                <div class="icon">
+                                    <i class="fa fa-rocket"></i>
+                                </div>
+                                <h2>Accesible</h2>
+                                <p>The Grand Farm te ofrece uno de servicios mas rapidos y accesible dentro de todas las plataformas</p>
+                            </div>
+                        </div>
+                        <!--/.col-md-3-->
+                        <div class="col-md-3 col-sm-4 fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                            <div class="feature-wrap">
+                                <div class="icon">
+                                    <i class="fa fa-check"></i>
+                                </div>
+                                <h2>Facil</h2>
+                                <p>The Grand Farm te ofrece las experiencias que más se ajusten con tus expectativas</p>
+                            </div>
+                        </div>
+                        <!--/.col-md-3-->
+                        <div class="col-md-3 col-sm-4 fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                            <div class="feature-wrap">
+                                <div class="icon">
+                                    <i class="fa fa-bullhorn"></i>
+                                </div>
+                                <h2>Barato</h2>
+                                <p>The Grand Farm te ofrece los mejores animales por los mejores precios</p>
+                            </div>
+                        </div>
+                        <!--/.col-md-3-->
+                        <div class="col-md-3 col-sm-4 fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                            <div class="feature-wrap">
+                                <div class="icon">
+                                    <i class="fa fa-arrows"></i>
+                                </div>
+                                <h2>Expansivo</h2>
+                                <p>The Grand Farm ademas de contar de servicio de ventas. Tambien cuenta con servicio de asesoria para tu granja</p>
+                            </div>
+                        </div>
+                        <!--/.col-md-3-->
+                    </div>
+                    <!--/.services-->
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+    </section>
+{% endif %}
 
 {% endblock content%}

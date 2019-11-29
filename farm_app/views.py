@@ -1,6 +1,13 @@
 from django.shortcuts import render
 from .models import Payment_food #punto significa directorio actual
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required, user_passes_test
+from django.shortcuts import get_object_or_404, redirect
+from django.template.context_processors import request
+from django.urls import reverse
+from django.contrib import messages
+from django.http import HttpResponseRedirect
 
 # Create your views here. 
 def payment_food_list(request):
@@ -95,3 +102,26 @@ def register_user(request):
         user.save()
         status= 'OK'
     return render(request,'farm_app/register_user.html', {'status' : status})
+
+def login_view(request):
+    status = ''
+    if request.method == 'POST':
+        username = request.POST.get('txtRutLogin')
+        password = request.POST.get('txtPassLogin')
+        user = authenticate(request, username = username, password = password )
+        if user:
+            login(request, user)
+            status = 'OK'
+            return HttpResponseRedirect(reverse('index'))
+        else:
+            status = 'ERROR'
+            messages.error(request,'Error al iniciar sesion :c ')
+    variables = {'status':status}
+    return render(request,'farm_app/login_view.html', variables)
+
+@login_required(login_url = 'login')
+def logout_view(request):
+    logout(request)
+    return redirect('login')
+
+

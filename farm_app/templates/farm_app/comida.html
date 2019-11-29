@@ -14,6 +14,8 @@
         Ocurrio un error al ingresar el evento, por favor intentelo mas tarde.
       </div>
       {% endif %}
+
+      {% if user.is_authenticated %}
       <div class="container">
         <!-- Jumbotron Header -->
         <header class="jumbotron my-4">
@@ -163,58 +165,63 @@
        
  
 
-<section id="contact-page">
-<div class="container">
-  <div class="large-title text-center">        
-    <h2>Seccion de pago de Alimento</h2>
-  </div> 
-   
-  <div id="pago"class="row contact-wrap">   
-    <!-- Formulario de pago -->
-    <form  method="POST" class="foodbuy_form">{% csrf_token %}
-        <div class="col-sm-5 col-sm-offset-1">
-          <div class="form-group">
-              <label for="nom">Rut: </label>
-              <input type="text" id="rut" name="rut"  class="form-control"  placeholder="Ej: 20123123k">
-          </div>
+  <section id="contact-page">
+  <div class="container">
+    <div class="large-title text-center">        
+      <h2>Seccion de pago de Alimento</h2>
+    </div> 
+    
+    <div id="pago"class="row contact-wrap">   
+      <!-- Formulario de pago -->
+      <form  method="POST" class="foodbuy_form">{% csrf_token %}
+          <div class="col-sm-5 col-sm-offset-1">
+            <div class="form-group">
+                <label for="nom">Rut: </label>
+                <input type="text" id="rut" name="rut"  class="form-control"  placeholder="Ej: 20123123k">
+            </div>
 
+            <div class="form-group">
+                <label for="ed">Nro cuenta: </label>
+                <input type="text" id="num_cuenta" name="num_cuenta"  class="form-control" placeholder="Escribe tu nro de cuenta">
+            </div> 
+            <div class="form-group">
+              <label for="correito">Correo electrónico: </label>
+              <input type="text" id="correo" name="correo"  class="form-control" placeholder="Escribe tu correo electronico" >
+            </div>
+          </div>
+        <div class="col-sm-5">
           <div class="form-group">
-              <label for="ed">Nro cuenta: </label>
-              <input type="text" id="num_cuenta" name="num_cuenta"  class="form-control" placeholder="Escribe tu nro de cuenta">
-          </div> 
+            <label for="selector"> Selecciona un producto:</label>
+            <select name="selector" id="selector"  class="form-control">
+              <option value="">Valor por defecto</option>
+              <option value="Dapac Cerdas">Dapac Cerdas  </option>
+              <option value="Aviplus ">Aviplus  </option>
+              <option value="Camperbroiler ">Camperbroiler Granulado  </option>
+              <option value="Conchilla">Conchilla  </option>
+              <option value="Dapac Vacas"> Dapac Vacas  </option>
+              <option value="Nantacor">Nantacor  </option>
+              <option value="Guidolin Nutri Potros">Guidolin Nutri Potros  </option>
+              <option value="Red Kite">Red Kite  </option>
+            </select>
+
+            <label for="selector2"> Forma de pago*</label>
+            <select name="selector2" id="selector2" class="form-control">
+              <option value="">Valor por defecto</option>
+              <option value="Tarjeta">Tarjeta  </option>
+              <option value="Paypal">Paypal  </option>
+            </select>
+          </div>
           <div class="form-group">
-            <label for="correito">Correo electrónico: </label>
-            <input type="text" id="correo" name="correo"  class="form-control" placeholder="Escribe tu correo electronico" >
+            <button type="submit" name="submit" class="btn btn-primary btn-lg" >Pagar</button>
           </div>
         </div>
-      <div class="col-sm-5">
-        <div class="form-group">
-          <label for="selector"> Selecciona un producto:</label>
-          <select name="selector" id="selector"  class="form-control">
-            <option value="">Valor por defecto</option>
-            <option value="Dapac Cerdas">Dapac Cerdas  </option>
-            <option value="Aviplus ">Aviplus  </option>
-            <option value="Camperbroiler ">Camperbroiler Granulado  </option>
-            <option value="Conchilla">Conchilla  </option>
-            <option value="Dapac Vacas"> Dapac Vacas  </option>
-            <option value="Nantacor">Nantacor  </option>
-            <option value="Guidolin Nutri Potros">Guidolin Nutri Potros  </option>
-            <option value="Red Kite">Red Kite  </option>
-          </select>
-
-          <label for="selector2"> Forma de pago*</label>
-          <select name="selector2" id="selector2" class="form-control">
-            <option value="">Valor por defecto</option>
-            <option value="Tarjeta">Tarjeta  </option>
-            <option value="Paypal">Paypal  </option>
-          </select>
-        </div>
-        <div class="form-group">
-          <button type="submit" name="submit" class="btn btn-primary btn-lg" >Pagar</button>
-        </div>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
-</div>
-</section>
+  </section>
+{% else %}
+  <div class="alert alert-danger" role="alert">
+    Usted no tiene los privilegios suficientes para acceder a esta pagina
+  </div>
+{% endif %}
 {% endblock %}

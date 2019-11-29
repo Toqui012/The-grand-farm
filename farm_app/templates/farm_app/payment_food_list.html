@@ -72,62 +72,68 @@
         }
       }
 </script>
-
-{% if status == 'DELETED' %}
-  <div class="alert alert-success" role="alert">
-    Pedido eliminado satisfactoriamente
-  </div>
-{% endif %}
-
-{% if status == 'SEARCH' %}
-  <div class="alert alert-success" role="alert">
-    Alimento Encontrado Exitosamente
-  </div>
-
-{% elif status == 'NOTSEARCH' %}
-  <div class="alert alert-danger" role="alert">
-    Ocurrio Un Error Inesperado
-  </div>
-{% endif %}
-
-<div class="center fadeInDown">
-  <h2>Lista de Pedidos de Alimentos</h2>
-  <form method="POST"> {% csrf_token %}    
-    <div class="from-group">
-      <label for="label_buscar ">Buscar: </label>
-      <input type="text" name="buscar_rut" id="buscar_rut" placeholder="  --Ingrese el rut a buscar--" style="width: 180px; ">
-      <button type="submit" name="submit" class="btn btn-primary btn-lg">Buscar</button>
+{% if user.is_authenticated and user.is_staff %}
+  {% if status == 'DELETED' %}
+    <div class="alert alert-success" role="alert">
+      Pedido eliminado satisfactoriamente
     </div>
-  </form>
-</div>
-<section id="team-area">
-  <div class="container">
-      <div class="row">
-        <!-- Container Caballo -->
-{% for x in list %}
-        <div class="col-md-3 col-sm-6 single-team">
-          <div class="inner">
-            <div class="team-img">
-              <img class="animal" src="{% static 'img/blog/avatar3.png' %}" alt="">
-            </div>
-            <div class="team-content">
-              <h4>Codigo de Pedido: {{x.pk}}</h4>
-              <h2>Rut: {{x.rut}}</h2>
-              <h2>Correo: {{x.correo}}</h2>
-              <h2>Metodo de pago: {{x.pay}}</h2>
-              <h2>Producto Encargado: {{x.product}}</h2>
-              <br>
-              <div class="card-footer">
-                <a href="#ventana1" onclick="confirmOption('eliminar', '/payment_food_delete/{{x.pk}}')" class="btn btn-primary" >Eliminar</a>
-                <a href="#ventana1" onclick="confirmOption('actualizar', '/payment_food_update/{{x.pk}}')" class="btn btn-primary" >Modificar</a>
+  {% endif %}
+
+  {% if status == 'SEARCH' %}
+    <div class="alert alert-success" role="alert">
+      Alimento Encontrado Exitosamente
+    </div>
+
+  {% elif status == 'NOTSEARCH' %}
+    <div class="alert alert-danger" role="alert">
+      Ocurrio Un Error Inesperado
+    </div>
+  {% endif %}
+
+  <div class="center fadeInDown">
+    <h2>Lista de Pedidos de Alimentos</h2>
+    <form method="POST"> {% csrf_token %}    
+      <div class="from-group">
+        <label for="label_buscar ">Buscar: </label>
+        <input type="text" name="buscar_rut" id="buscar_rut" placeholder="  --Ingrese el rut a buscar--" style="width: 180px; ">
+        <button type="submit" name="submit" class="btn btn-primary btn-lg">Buscar</button>
+      </div>
+    </form>
+  </div>
+  <section id="team-area">
+    <div class="container">
+        <div class="row">
+          <!-- Container Caballo -->
+  {% for x in list %}
+          <div class="col-md-3 col-sm-6 single-team">
+            <div class="inner">
+              <div class="team-img">
+                <img class="animal" src="{% static 'img/blog/avatar3.png' %}" alt="">
+              </div>
+              <div class="team-content">
+                <h4>Codigo de Pedido: {{x.pk}}</h4>
+                <h2>Rut: {{x.rut}}</h2>
+                <h2>Correo: {{x.correo}}</h2>
+                <h2>Metodo de pago: {{x.pay}}</h2>
+                <h2>Producto Encargado: {{x.product}}</h2>
+                <br>
+                <div class="card-footer">
+                  <a href="#ventana1" onclick="confirmOption('eliminar', '/payment_food_delete/{{x.pk}}')" class="btn btn-primary" >Eliminar</a>
+                  <a href="#ventana1" onclick="confirmOption('actualizar', '/payment_food_update/{{x.pk}}')" class="btn btn-primary" >Modificar</a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-{% endfor %}
+  {% endfor %}
+      </div>
     </div>
+  </section>
+
+{% else %}
+  <div class="alert alert-danger" role="alert">
+    Usted no tiene los privilegios suficientes para acceder a esta pagina
   </div>
-</section>
+{% endif %}
 {% endblock %}
 
    
