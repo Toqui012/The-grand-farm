@@ -8,6 +8,8 @@ from django.template.context_processors import request
 from django.urls import reverse
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.core.mail import send_mail
+from django.conf import settings
 
 # Create your views here. 
 def payment_food_list(request):
@@ -33,6 +35,13 @@ def payment_food_list(request):
 def payment_food(request):
     status = 'NO_CONTENT'
     if request.method == 'POST':
+        correo = request.POST.get('correo')
+        send_mail('Comprobante The grand farm',
+        'Hola este correo sirve de comprobante para verificar tu pedido de comida en the grand farm, dentro de unos minutos aparecera en nuestra web para ver su seguimiento',
+        'toqui12@hushmail.com',
+        [correo],
+        fail_silently=False)
+
         try:
             food = Payment_food()
             food.rut = request.POST.get('rut')
@@ -123,5 +132,8 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('login')
+
+def my_list(request):
+    return render(request,'farm_app/my_list.html')
 
 

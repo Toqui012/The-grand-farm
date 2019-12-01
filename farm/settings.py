@@ -27,6 +27,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+EMAIL_HOST = 'smtp.hushmail.com'
+EMAIL_HOST_USER = 'toqui12@hushmail.com'
+EMAIL_HOST_PASSWORD = 'charizard12'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+
+
 
 # Application definition
 
