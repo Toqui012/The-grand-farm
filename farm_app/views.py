@@ -35,22 +35,6 @@ def payment_food_list(request):
 def payment_food(request):
     status = 'NO_CONTENT'
     if request.method == 'POST':
-        correo = request.POST.get('correo')
-        rut = request.POST.get('rut')
-        product = request.POST.get('selector')
-        pay = request.POST.get('selector2')
-        num_cuenta = request.POST.get('num_cuenta')
-        send_mail('Comprobante The grand farm',
-        'Hola este correo sirve de comprobante para verificar tu pedido de comida en the grand farm, dentro de unos minutos aparecera en nuestra web para ver su seguimiento'+
-        'Info del pago'+
-        '--Rut: '+ rut +
-        '--Producto: '+ product +
-        '--Metodo de pago: '+ pay +
-        '--Numero de cuenta: '+num_cuenta,
-        'toqui12@hushmail.com',
-        [correo],
-        fail_silently=True)
-
         try:
             food = Payment_food()
             food.rut = request.POST.get('rut')
