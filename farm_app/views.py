@@ -49,7 +49,7 @@ def payment_food(request):
         '--Numero de cuenta: '+num_cuenta,
         'toqui12@hushmail.com',
         [correo],
-        fail_silently=False)
+        fail_silently=True)
 
         try:
             food = Payment_food()
