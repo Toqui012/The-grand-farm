@@ -22,36 +22,36 @@
         Usted ya esta registrado!
     </div>
 {% else %}
-    <section style="padding-left: 27%;">
+    <section style="padding-left: 0%;">
         <form method="POST" class="register_form">{% csrf_token %}
-            <div class="col-sm-5 col-sm-offset-1">
+            <div class="col-sm-4 col-sm-offset-4">
                 <div class="form-group">
-                    <label for="nom">Rut:</label>
-                    <input type="text" name="txtRut" id="txtRut" class="form-control" placeholder="Ingrese su rut aqui">
+                    <label for="nom" style="font-size: 22px;">Rut:</label>
+                    <input type="text" name="txtRut" id="txtRut" class="form-control" placeholder="Ingrese su rut aqui" style="background: #e0e0e0; color: #2e2e2e;">
                     <br>
                 </div>
 
                 <div class="form-group">
-                    <label for="nom">Nombre:</label>
-                    <input type="text" name="txtNombre" id="txtNombre" class="form-control" placeholder="Ingrese su rut aqui">
+                    <label for="nom" style="font-size: 22px;">Nombre:</label>
+                    <input type="text" name="txtNombre" id="txtNombre" class="form-control" placeholder="Ingrese su nombre titular aqui" style="background: #e0e0e0; color: #2e2e2e;">
                     <br>
                 </div>
 
                 <div class="form-group">
-                    <label for="nom">Apellido:</label>
-                    <input type="text" name="txtApellido" id="txtApellido" class="form-control" placeholder="Ingrese su rut aqui">
+                    <label for="nom" style="font-size: 22px;">Apellido:</label>
+                    <input type="text" name="txtApellido" id="txtApellido" class="form-control" placeholder="Ingrese su apelido aqui" style="background: #e0e0e0; color: #2e2e2e;">
                     <br>
                 </div>
 
                 <div class="form-group">
-                    <label for="nom">Correo:</label>
-                    <input type="text" name="txtCorreo" id="txtCorreo" class="form-control" placeholder="Ingrese su rut aqui">
+                    <label for="nom" style="font-size: 22px;">Correo:</label>
+                    <input type="text" name="txtCorreo" id="txtCorreo" class="form-control" placeholder="Ingrese su correo electronico aqui" style="background: #e0e0e0; color: #2e2e2e;">
                     <br>
                 </div>
 
                 <div class="form-group">
-                    <label for="nom">Contraseña:</label>
-                    <input type="text" name="txtPass" id="txtPass" class="form-control" placeholder="Ingrese su rut aqui">
+                    <label for="nom" style="font-size: 22px;">Contraseña:</label>
+                    <input type="password" name="txtPass" id="txtPass" class="form-control" placeholder="Ingrese su contraseña aqui" style="background: #e0e0e0; color: #2e2e2e;">
                     <br>
                 </div>
 
