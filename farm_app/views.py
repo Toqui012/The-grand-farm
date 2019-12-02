@@ -125,6 +125,19 @@ def logout_view(request):
     return redirect('login')
 
 def my_list(request):
-    return render(request,'farm_app/my_list.html')
+    list = Payment_food.objects.all()
+    status = 'NO_CONTENT'
+    try:
+        status = 'FOUND'
+        rut_busca = request.user.username
+        if Payment_food.objects.all().filter(rut = rut_busca).exists() == True:
+            list = Payment_food.objects.all().filter(rut = rut_busca)
+        else:
+            status = 'NOT_FOUND'
+    except:
+        status = 'NOT_FOUND'
+    variables = {'status': status,
+                    'list': list}
+    return render(request,'farm_app/my_list.html', variables)
 
 
